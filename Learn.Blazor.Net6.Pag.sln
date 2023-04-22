@@ -3,13 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.33530.505
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn.Blazor.Net6.Pag.Server", "Learn.Blazor.Net6.Pag\Server\Learn.Blazor.Net6.Pag.Server.csproj", "{D256F632-4EF6-4DD3-9DDE-DB7681591EC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn.Blazor.Net6.Pag.Server", "src\Learn.Blazor.Net6.Pag.Server\Learn.Blazor.Net6.Pag.Server.csproj", "{D256F632-4EF6-4DD3-9DDE-DB7681591EC5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn.Blazor.Net6.Pag.Client", "Learn.Blazor.Net6.Pag\Client\Learn.Blazor.Net6.Pag.Client.csproj", "{77B8E2FB-86E3-42C9-8EE1-AA1B807302E2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn.Blazor.Net6.Pag.Client", "src\Learn.Blazor.Net6.Pag.Client\Learn.Blazor.Net6.Pag.Client.csproj", "{77B8E2FB-86E3-42C9-8EE1-AA1B807302E2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn.Blazor.Net6.Pag.Data", "Data\Learn.Blazor.Net6.Pag.Data\Learn.Blazor.Net6.Pag.Data.csproj", "{349A8507-79A6-40AA-83DE-9B3959901AA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn.Blazor.Net6.Pag.Data", "src\Learn.Blazor.Net6.Pag.Data\Learn.Blazor.Net6.Pag.Data.csproj", "{349A8507-79A6-40AA-83DE-9B3959901AA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learn.Blazor.Net6.Pag.Models", "Models\Learn.Blazor.Net6.Pag.Models\Learn.Blazor.Net6.Pag.Models.csproj", "{1940F7A7-5C75-4B12-B4E6-A6B0C1BD0F20}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learn.Blazor.Net6.Pag.Models", "src\Learn.Blazor.Net6.Pag.Models\Learn.Blazor.Net6.Pag.Models.csproj", "{1940F7A7-5C75-4B12-B4E6-A6B0C1BD0F20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

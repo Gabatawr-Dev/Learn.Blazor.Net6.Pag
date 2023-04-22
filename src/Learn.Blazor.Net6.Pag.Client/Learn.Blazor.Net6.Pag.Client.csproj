@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Models\Learn.Blazor.Net6.Pag.Models\Learn.Blazor.Net6.Pag.Models.csproj" />
+    <ProjectReference Include="..\Learn.Blazor.Net6.Pag.Models\Learn.Blazor.Net6.Pag.Models.csproj" />
   </ItemGroup>
 
 </Project>

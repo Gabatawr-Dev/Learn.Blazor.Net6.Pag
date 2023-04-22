@@ -17,9 +17,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\Data\Learn.Blazor.Net6.Pag.Data\Learn.Blazor.Net6.Pag.Data.csproj" />
-    <ProjectReference Include="..\..\Models\Learn.Blazor.Net6.Pag.Models\Learn.Blazor.Net6.Pag.Models.csproj" />
-    <ProjectReference Include="..\Client\Learn.Blazor.Net6.Pag.Client.csproj" />
+    <ProjectReference Include="..\Learn.Blazor.Net6.Pag.Data\Learn.Blazor.Net6.Pag.Data.csproj" />
+    <ProjectReference Include="..\Learn.Blazor.Net6.Pag.Models\Learn.Blazor.Net6.Pag.Models.csproj" />
+    <ProjectReference Include="..\Learn.Blazor.Net6.Pag.Client\Learn.Blazor.Net6.Pag.Client.csproj" />
   </ItemGroup>
 
 
