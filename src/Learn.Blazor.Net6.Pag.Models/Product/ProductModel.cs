@@ -9,15 +9,7 @@ public class ProductModel
     public decimal Price { get; set; }
 
     public ProductModel() { }
-    public ProductModel(ProductDTO dto)
-    {
-        Id = dto.Id;
-        Title = dto.Title;
-        Description = dto.Description;
-        Price = dto.Price;
-        ImageUrl = dto.ImageUrl;
-    }
-    
+
     // Moq
     public ProductModel(string title, string description, decimal price, string? imageUrl = null)
     {

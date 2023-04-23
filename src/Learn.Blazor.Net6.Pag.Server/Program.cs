@@ -1,6 +1,7 @@
 using Learn.Blazor.Net6.Pag.Data.Contexts;
 using Learn.Blazor.Net6.Pag.Data.Repositories.Product;
 using Learn.Blazor.Net6.Pag.Data.Secrets;
+using Learn.Blazor.Net6.Pag.Server.GrpcServices.Product;
 using Learn.Blazor.Net6.Pag.Server.Infrastructures.Filters;
 using Learn.Blazor.Net6.Pag.Server.Services.Product;
 
@@ -45,6 +46,8 @@ public static class Program
         builder.Services.AddControllersWithViews();
         builder.Services.AddRazorPages();
 
+        builder.Services.AddGrpc();
+
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
 
@@ -73,10 +76,16 @@ public static class Program
         app.UseStaticFiles();
 
         app.UseRouting();
-
         app.MapRazorPages();
-        app.MapControllers();
-        app.MapFallbackToFile("index.html");
+
+        app.UseGrpcWeb();
+
+        app.UseEndpoints(endpoints =>
+        {
+            endpoints.MapGrpcService<ProductGrpcService>().EnableGrpcWeb();
+            endpoints.MapControllers();
+            endpoints.MapFallbackToFile("index.html");
+        });
 
         return app;
     }

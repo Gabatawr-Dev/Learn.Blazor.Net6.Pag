@@ -29,6 +29,15 @@ public class Repository<T, TKey> : IRepository<T, TKey> where T : class, IEntity
             .ToListAsync(token);
     }
 
+    public IAsyncEnumerable<T> GetAsyncEnumerable(Expression<Func<T, bool>>? filter = null,
+        Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
+        string? include = null,
+        bool isTracking = true)
+    {
+        return GetQuery(filter, orderBy, include, isTracking)
+            .AsAsyncEnumerable();
+    }
+
     public async Task<T?> FirstOrDefaultAsync(CancellationToken token,
         Expression<Func<T, bool>>? filter = null,
         string? include = null,

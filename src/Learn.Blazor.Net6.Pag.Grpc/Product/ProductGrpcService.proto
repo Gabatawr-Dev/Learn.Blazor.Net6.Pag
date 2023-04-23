@@ -1,0 +1,11 @@
+syntax = "proto3";
+option csharp_namespace = "Learn.Blazor.Net6.Pag.Grpc.Product";
+
+import "google/protobuf/empty.proto";
+import "Product/ProductGetAllRes.proto";
+import "Product/ProductUnit.proto";
+
+service ProductGrpcService {
+  rpc GetAllReq(google.protobuf.Empty) returns (ProductGetAllRes);
+  rpc GetAllStreamReq(google.protobuf.Empty) returns (stream ProductUnit);
+}

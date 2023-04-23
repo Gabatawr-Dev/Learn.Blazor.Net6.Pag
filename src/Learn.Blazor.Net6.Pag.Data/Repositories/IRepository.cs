@@ -13,6 +13,11 @@ public interface IRepository<T, TKey> where T : class, IEntity<TKey>
         string? include = null,
         bool isTracking = true);
 
+    public IAsyncEnumerable<T> GetAsyncEnumerable(Expression<Func<T, bool>>? filter = null,
+        Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
+        string? include = null,
+        bool isTracking = true);
+
     Task<T?> FirstOrDefaultAsync(CancellationToken token,
         Expression<Func<T, bool>>? filter = null,
         string? include = null,

@@ -9,7 +9,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn.Blazor.Net6.Pag.Clien
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn.Blazor.Net6.Pag.Data", "src\Learn.Blazor.Net6.Pag.Data\Learn.Blazor.Net6.Pag.Data.csproj", "{349A8507-79A6-40AA-83DE-9B3959901AA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learn.Blazor.Net6.Pag.Models", "src\Learn.Blazor.Net6.Pag.Models\Learn.Blazor.Net6.Pag.Models.csproj", "{1940F7A7-5C75-4B12-B4E6-A6B0C1BD0F20}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn.Blazor.Net6.Pag.Models", "src\Learn.Blazor.Net6.Pag.Models\Learn.Blazor.Net6.Pag.Models.csproj", "{1940F7A7-5C75-4B12-B4E6-A6B0C1BD0F20}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learn.Blazor.Net6.Pag.Grpc", "src\Learn.Blazor.Net6.Pag.Grpc\Learn.Blazor.Net6.Pag.Grpc.csproj", "{F2DE89CF-20A0-4067-B1ED-A24FFC98C045}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{1940F7A7-5C75-4B12-B4E6-A6B0C1BD0F20}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1940F7A7-5C75-4B12-B4E6-A6B0C1BD0F20}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1940F7A7-5C75-4B12-B4E6-A6B0C1BD0F20}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F2DE89CF-20A0-4067-B1ED-A24FFC98C045}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F2DE89CF-20A0-4067-B1ED-A24FFC98C045}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F2DE89CF-20A0-4067-B1ED-A24FFC98C045}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F2DE89CF-20A0-4067-B1ED-A24FFC98C045}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

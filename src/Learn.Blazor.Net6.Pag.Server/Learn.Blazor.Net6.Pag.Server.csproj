@@ -8,6 +8,8 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Grpc.AspNetCore" Version="2.52.0" />
+    <PackageReference Include="Grpc.AspNetCore.Web" Version="2.52.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="6.0.16" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="6.0.16">
       <PrivateAssets>all</PrivateAssets>
@@ -18,7 +20,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Learn.Blazor.Net6.Pag.Data\Learn.Blazor.Net6.Pag.Data.csproj" />
-    <ProjectReference Include="..\Learn.Blazor.Net6.Pag.Models\Learn.Blazor.Net6.Pag.Models.csproj" />
+    <ProjectReference Include="..\Learn.Blazor.Net6.Pag.Grpc\Learn.Blazor.Net6.Pag.Grpc.csproj" />
     <ProjectReference Include="..\Learn.Blazor.Net6.Pag.Client\Learn.Blazor.Net6.Pag.Client.csproj" />
   </ItemGroup>
 

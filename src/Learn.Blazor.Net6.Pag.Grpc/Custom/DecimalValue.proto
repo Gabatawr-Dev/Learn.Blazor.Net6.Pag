@@ -1,0 +1,7 @@
+syntax = "proto3";
+option csharp_namespace = "Learn.Blazor.Net6.Pag.Grpc.Custom";
+
+message DecimalValue {
+    int64 units = 1;
+    sfixed32 nanos = 2;
+}

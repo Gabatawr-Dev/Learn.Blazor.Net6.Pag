@@ -1,0 +1,13 @@
+syntax = "proto3";
+option csharp_namespace = "Learn.Blazor.Net6.Pag.Grpc.Product";
+
+import "google/protobuf/wrappers.proto";
+import "Custom/DecimalValue.proto";
+
+message ProductUnit {
+    string id = 1;
+    string title = 2;
+    string description = 3;
+    google.protobuf.StringValue image_url = 4;
+    DecimalValue price = 5;
+}

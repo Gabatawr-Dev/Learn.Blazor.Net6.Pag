@@ -5,4 +5,5 @@ namespace Learn.Blazor.Net6.Pag.Server.Services.Product;
 public interface IProductService
 {
     Task<IEnumerable<ProductModel>> GetAllAsync(CancellationToken token);
+    public IAsyncEnumerable<ProductModel> GetAsyncEnumerable(CancellationToken token);
 }
