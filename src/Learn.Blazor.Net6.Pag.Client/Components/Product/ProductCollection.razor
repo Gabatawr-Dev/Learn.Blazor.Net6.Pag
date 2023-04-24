@@ -1,0 +1,24 @@
+﻿<div class="btn @ButtonContext.Class" @onclick="@ButtonContext.Command" style="width:180px">
+    <i class="@ButtonContext.Icon"></i>
+    @ButtonContext.Text
+</div>
+
+<ul class="list-unstyled mt-2">
+    @foreach (var product in Collection)
+    {
+        <li class="card mb-3" style="max-width: 540px;">
+            <div class="row g-0">
+                <div class="col-md-4">
+                    <img class="img-fluid rounded-start" src="@product.ImageUrl" alt="@product.Title">
+                </div>
+                <div class="col-md-8">
+                    <div class="card-body">
+                        <h5 class="card-title">@product.Title</h5>
+                        <p class="card-text">@product.Description</p>
+                        <h5 class="card-subtitle">$@product.Price</h5>
+                    </div>
+                </div>
+            </div>
+        </li>
+    }
+</ul>
