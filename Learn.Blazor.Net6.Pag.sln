@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn.Blazor.Net6.Pag.Data"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn.Blazor.Net6.Pag.Models", "src\Learn.Blazor.Net6.Pag.Models\Learn.Blazor.Net6.Pag.Models.csproj", "{1940F7A7-5C75-4B12-B4E6-A6B0C1BD0F20}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Learn.Blazor.Net6.Pag.Grpc", "src\Learn.Blazor.Net6.Pag.Grpc\Learn.Blazor.Net6.Pag.Grpc.csproj", "{F2DE89CF-20A0-4067-B1ED-A24FFC98C045}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn.Blazor.Net6.Pag.Grpc", "src\Learn.Blazor.Net6.Pag.Grpc\Learn.Blazor.Net6.Pag.Grpc.csproj", "{F2DE89CF-20A0-4067-B1ED-A24FFC98C045}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
