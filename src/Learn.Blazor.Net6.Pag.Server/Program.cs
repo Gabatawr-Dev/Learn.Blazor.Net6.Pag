@@ -20,6 +20,7 @@ public static class Program
                 .Run();
     }
     
+    // Repositories
     private static WebApplicationBuilder AddRepositories(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<IProductRepository, ProductRepository>();
@@ -27,11 +28,20 @@ public static class Program
         return builder;
     }
 
+    // Services
     private static WebApplicationBuilder AddServices(this WebApplicationBuilder builder)
     {
         builder.Services.AddScoped<IProductService, ProductService>();
         
         return builder;
+    }
+
+    // GrpcServices
+    private static IEndpointRouteBuilder AddGrpcServices(this IEndpointRouteBuilder endpoints)
+    {
+        endpoints.MapGrpcService<ProductGrpcService>().EnableGrpcWeb();
+
+        return endpoints;
     }
 
     #region Infrastructure
@@ -82,8 +92,10 @@ public static class Program
 
         app.UseEndpoints(endpoints =>
         {
-            endpoints.MapGrpcService<ProductGrpcService>().EnableGrpcWeb();
-            endpoints.MapControllers();
+            endpoints
+                .AddGrpcServices()
+                .MapControllers();
+            
             endpoints.MapFallbackToFile("index.html");
         });
 

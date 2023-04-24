@@ -15,31 +15,22 @@ public class ProductGrpcService : Grpc.Product.ProductGrpcService.ProductGrpcSer
         var models = await _service.GetAllAsync(context.CancellationToken);
         return new ProductGetAllRes
         {
-            Units = 
-            {
-                models.Select(m => new ProductUnit
-                {
-                    Id = m.Id.ToString(),
-                    Title = m.Title,
-                    Description = m.Description,
-                    ImageUrl = m.ImageUrl,
-                    Price = m.Price
-                })
-            }
+            Units = { models.Select(m => m.MapToUnit()) }
         };
     }
 
-    public override async Task GetAllStreamReq(Empty request, IServerStreamWriter<ProductUnit> responseStream, 
+    public override async Task GetAllStreamReq(Empty request, IServerStreamWriter<ProductUnit> responseStream,
         ServerCallContext context)
     {
         try
         {
-            await foreach (var m in _service.GetAsyncEnumerable(context.CancellationToken))
+            // await foreach (var m in _service.GetAsyncEnumerable(context.CancellationToken))
+            foreach (var m in await _service.GetAllAsync(context.CancellationToken))
                 await responseStream.WriteAsync(m.MapToUnit());
         }
         catch (OperationCanceledException)
         {
-            throw new RpcException(new Status(StatusCode.Cancelled, "The operation was cancelled by Client"));
+            throw new RpcException(new Status(StatusCode.Cancelled, "The operation was canceled on the client side"));
         }
     }
 }
