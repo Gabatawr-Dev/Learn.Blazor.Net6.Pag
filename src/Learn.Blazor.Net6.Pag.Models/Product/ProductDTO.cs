@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Learn.Blazor.Net6.Pag.Models.Product;
 
@@ -15,5 +16,6 @@ public class ProductDTO : IEntity<Guid>
     
     [Required]
     [Range(0, int.MaxValue)]
+    [Column(TypeName = "decimal(18,2)")]
     public decimal Price { get; set; }
 }

@@ -12,7 +12,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Learn.Blazor.Net6.Pag.Data.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20230422121915_Init")]
+    [Migration("20230425082544_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
