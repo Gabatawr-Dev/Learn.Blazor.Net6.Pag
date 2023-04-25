@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Learn.Blazor.Net6.Pag.Data.Contexts;
 
-public class ApplicationDbContext : DbContext
+public partial class ApplicationDbContext : DbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
         : base(options) { }

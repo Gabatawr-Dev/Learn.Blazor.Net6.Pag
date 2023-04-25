@@ -22,8 +22,7 @@ public class ProductGrpcService : Grpc.Product.ProductGrpcService.ProductGrpcSer
     public override async Task GetAllStreamReq(Empty request, IServerStreamWriter<ProductUnit> responseStream,
         ServerCallContext context)
     {
-        // await foreach (var m in _service.GetAsyncEnumerable(context.CancellationToken))
-        foreach (var m in await _service.GetAllAsync(context.CancellationToken))
+        await foreach (var m in _service.GetAsyncEnumerable(context.CancellationToken))
             await responseStream.WriteAsync(m.MapToUnit());
     }
 }
