@@ -22,15 +22,8 @@ public class ProductGrpcService : Grpc.Product.ProductGrpcService.ProductGrpcSer
     public override async Task GetAllStreamReq(Empty request, IServerStreamWriter<ProductUnit> responseStream,
         ServerCallContext context)
     {
-        try
-        {
-            // await foreach (var m in _service.GetAsyncEnumerable(context.CancellationToken))
-            foreach (var m in await _service.GetAllAsync(context.CancellationToken))
-                await responseStream.WriteAsync(m.MapToUnit());
-        }
-        catch (OperationCanceledException)
-        {
-            throw new RpcException(new Status(StatusCode.Cancelled, "The operation was canceled on the client side"));
-        }
+        // await foreach (var m in _service.GetAsyncEnumerable(context.CancellationToken))
+        foreach (var m in await _service.GetAllAsync(context.CancellationToken))
+            await responseStream.WriteAsync(m.MapToUnit());
     }
 }

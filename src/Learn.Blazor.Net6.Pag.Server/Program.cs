@@ -3,7 +3,9 @@ using Learn.Blazor.Net6.Pag.Data.Repositories.Product;
 using Learn.Blazor.Net6.Pag.Data.Secrets;
 using Learn.Blazor.Net6.Pag.Server.GrpcServices.Product;
 using Learn.Blazor.Net6.Pag.Server.Infrastructures.Filters;
+using Learn.Blazor.Net6.Pag.Server.Infrastructures.Interceptors;
 using Learn.Blazor.Net6.Pag.Server.Services.Product;
+using Serilog;
 
 namespace Learn.Blazor.Net6.Pag.Server;
 
@@ -48,6 +50,10 @@ public static class Program
 
     private static WebApplicationBuilder AddInfrastructure(this WebApplicationBuilder builder)
     {
+        builder.Host.UseSerilog((hostContext, logConfig) => logConfig
+            .ReadFrom.Configuration(hostContext.Configuration)
+            .WriteTo.Console());
+
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlWithSecrets(builder.Configuration));
 
@@ -56,7 +62,8 @@ public static class Program
         builder.Services.AddControllersWithViews();
         builder.Services.AddRazorPages();
 
-        builder.Services.AddGrpc();
+        builder.Services.AddGrpc(options =>
+            options.Interceptors.Add<ExceptionInterceptor>());
 
         builder.Services.AddEndpointsApiExplorer();
         builder.Services.AddSwaggerGen();
@@ -70,11 +77,7 @@ public static class Program
         app.UseSwaggerUI();
 
         if (app.Environment.IsDevelopment())
-        {
             app.UseWebAssemblyDebugging();
-            app.UseSwagger();
-            app.UseSwaggerUI();
-        }
         else
         {
             app.UseExceptionHandler("/Error");
