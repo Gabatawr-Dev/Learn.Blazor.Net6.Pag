@@ -1,0 +1,15 @@
+syntax = "proto3";
+option csharp_namespace = "Learn.Blazor.Net6.Pag.Grpc.Product";
+
+import "Product/ProductUnit.proto";
+import "Product/ProductGetQuantity.proto";
+
+message ProductGetReq {
+    int32 quantity = 1;
+    optional int32 offset = 2;
+}
+
+message ProductGetRes {
+    repeated ProductUnit units = 1;
+    optional ProductGetQuantityRes quantity_res = 2;
+}

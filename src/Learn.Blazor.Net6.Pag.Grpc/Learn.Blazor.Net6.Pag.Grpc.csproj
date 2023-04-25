@@ -16,7 +16,7 @@
     <Protobuf Include="**/*.proto" GrpcServices="Both" />
   </ItemGroup>
 
-  <ItemGroup>
+	<ItemGroup>
     <ProjectReference Include="..\Learn.Blazor.Net6.Pag.Models\Learn.Blazor.Net6.Pag.Models.csproj" />
   </ItemGroup>
 

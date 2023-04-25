@@ -5,12 +5,14 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Learn.Blazor.Net6.Pag.Data.Repositories;
 
-public class Repository<T, TKey> : IRepository<T, TKey> where T : class, IEntity<TKey>
+public abstract class Repository<T, TKey> : IRepository<T, TKey> where T : class, IEntity<TKey>
 {
+    public int MaxQuantityPerRequest { get; protected set; } = int.MaxValue;
+
     protected readonly ApplicationDbContext Context;
     protected readonly DbSet<T> Set;
 
-    public Repository(ApplicationDbContext context)
+    protected Repository(ApplicationDbContext context)
     {
         Context = context;
         Set = Context.Set<T>();
@@ -19,23 +21,35 @@ public class Repository<T, TKey> : IRepository<T, TKey> where T : class, IEntity
     public async Task<T?> FindAsync(object? id, CancellationToken token) =>
         await Set.FindAsync(id, token);
 
-    public async Task<IEnumerable<T>> GetAllAsync(CancellationToken token, 
+    public async Task<IEnumerable<T>> GetAsync(int quantity, int offset, CancellationToken token,
         Expression<Func<T, bool>>? filter = null,
         Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
         string? include = null,
         bool isTracking = true)
     {
-        return await GetQuery(filter, orderBy, include, isTracking)
-            .ToListAsync(token);
+        var query = GetQuery(filter, orderBy, include, isTracking)
+            .Skip(offset);
+        
+        if (quantity > 0)
+            query = query.Take(quantity > MaxQuantityPerRequest ? MaxQuantityPerRequest : quantity);
+        else return Enumerable.Empty<T>();
+        
+        return await query.ToListAsync(token);
     }
 
-    public IAsyncEnumerable<T> GetAsyncEnumerable(Expression<Func<T, bool>>? filter = null,
+    public IAsyncEnumerable<T> GetAsyncEnumerable(int quantity = 0, int offset = 0, 
+        Expression<Func<T, bool>>? filter = null,
         Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
         string? include = null,
         bool isTracking = true)
     {
-        return GetQuery(filter, orderBy, include, isTracking)
-            .AsAsyncEnumerable();
+        var query = GetQuery(filter, orderBy, include, isTracking)
+            .Skip(offset);
+        
+        if (quantity > 0)
+            query = query.Take(quantity);
+        
+        return query.AsAsyncEnumerable();
     }
 
     public async Task<T?> FirstOrDefaultAsync(CancellationToken token,
@@ -104,4 +118,7 @@ public class Repository<T, TKey> : IRepository<T, TKey> where T : class, IEntity
 
     public async Task SaveChangesAsync(CancellationToken token) =>
         await Context.SaveChangesAsync(token);
+
+    public async Task<int> GetCountAsync(CancellationToken token) => 
+       await Set.CountAsync(token);
 }

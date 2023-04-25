@@ -1,4 +1,4 @@
-﻿namespace Learn.Blazor.Net6.Pag.Data.Secrets;
+﻿namespace Learn.Blazor.Net6.Pag.Models.Configuration;
 
 public class SqlSecrets
 {

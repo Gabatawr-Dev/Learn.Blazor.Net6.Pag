@@ -1,0 +1,11 @@
+syntax = "proto3";
+option csharp_namespace = "Learn.Blazor.Net6.Pag.Grpc.Product";
+
+message ProductGetQuantityReq {
+    optional bool include_total = 1;
+}
+
+message ProductGetQuantityRes {
+    int32 max_per_request = 1;
+    optional int32 total_quantity = 2;
+}

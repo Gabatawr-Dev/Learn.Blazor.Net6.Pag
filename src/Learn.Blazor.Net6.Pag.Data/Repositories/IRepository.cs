@@ -5,15 +5,18 @@ namespace Learn.Blazor.Net6.Pag.Data.Repositories;
 
 public interface IRepository<T, TKey> where T : class, IEntity<TKey>
 {
+    int MaxQuantityPerRequest { get; }
+    
     Task<T?> FindAsync(object? id, CancellationToken token);
 
-    Task<IEnumerable<T>> GetAllAsync(CancellationToken token, 
+    Task<IEnumerable<T>> GetAsync(int quantity, int offset, CancellationToken token,
         Expression<Func<T, bool>>? filter = null,
         Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
         string? include = null,
         bool isTracking = true);
 
-    public IAsyncEnumerable<T> GetAsyncEnumerable(Expression<Func<T, bool>>? filter = null,
+    public IAsyncEnumerable<T> GetAsyncEnumerable(int quantity = 0, int offset = 0,
+        Expression<Func<T, bool>>? filter = null,
         Func<IQueryable<T>, IOrderedQueryable<T>>? orderBy = null,
         string? include = null,
         bool isTracking = true);
@@ -31,4 +34,6 @@ public interface IRepository<T, TKey> where T : class, IEntity<TKey>
     Task UpdateUntrackedAsync(T untrackedEntity, CancellationToken token, params string[] properties);
 
     Task SaveChangesAsync(CancellationToken token);
+
+    Task<int> GetCountAsync(CancellationToken token);
 }

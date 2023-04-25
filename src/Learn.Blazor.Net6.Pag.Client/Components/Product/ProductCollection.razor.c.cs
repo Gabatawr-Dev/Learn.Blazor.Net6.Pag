@@ -1,26 +1,15 @@
-﻿using Google.Protobuf.WellKnownTypes;
-using Grpc.Core;
-using Learn.Blazor.Net6.Pag.Grpc.Product;
+﻿using Grpc.Core;
 
 namespace Learn.Blazor.Net6.Pag.Client.Components.Product;
 
 public partial class ProductCollection
 {
-    private async Task StreamBtnCommand()
+    private async Task Loading(Func<Task> command)
     {
         UpdateButton(_cancelButtonContext);
-        var token = GetStreamToken();
         try
         {
-            var stream = _grpcClient.GetAllStreamReq(new Empty());
-
-            Collection.Clear();
-            await foreach (var unit in stream.ResponseStream.ReadAllAsync(token))
-            {
-                Collection.Add(unit.MapToModel());
-                StateHasChanged();
-                await Task.Delay(1000, token); // test
-            }
+            await command.Invoke();
         }
         catch (RpcException rpcException)
         {
@@ -33,6 +22,41 @@ public partial class ProductCollection
             UpdateButton(_streamButtonContext);
         }
     }
+
+    private async Task PageLoadingCommand() => await Loading(async () =>
+    {
+        var token = GetToken();
+        await foreach (var model in _service
+                           .GetAsync(QUANTITY_PER_PAGE, _currentPage * QUANTITY_PER_PAGE, token))
+        {
+            Collection.Add(model); // TODO;
+        }
+
+        _currentPage++;
+    });
+
+    private async Task NextPageLoadingCommand() => await Loading(async () =>
+    {
+        var stream = _service
+            .GetStreamAsync(QUANTITY_PER_PAGE - _lastLoadedQuantity,
+                _currentPage * QUANTITY_PER_PAGE + _lastLoadedQuantity);
+
+        var token = GetToken();
+        await foreach (var model in stream.WithCancellation(token))
+        {
+            Collection.Add(model);
+            StateHasChanged();
+            _lastLoadedQuantity++;
+
+            await Task.Delay(1000, token); // TODO;
+        }
+
+        if (_lastLoadedQuantity == QUANTITY_PER_PAGE)
+        {
+            _currentPage++;
+            _lastLoadedQuantity = 0;
+        }
+    });
 
     private Task CancelBtnCommand()
     {

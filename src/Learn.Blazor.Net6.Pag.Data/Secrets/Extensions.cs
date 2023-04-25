@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Learn.Blazor.Net6.Pag.Models.Configuration;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
 namespace Learn.Blazor.Net6.Pag.Data.Secrets;

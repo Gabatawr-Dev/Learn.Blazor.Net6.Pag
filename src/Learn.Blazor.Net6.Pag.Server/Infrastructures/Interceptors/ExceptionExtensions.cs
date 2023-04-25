@@ -45,7 +45,7 @@ public static class ExceptionExtensions
 
     private static RpcException HandleException<T>(Exception ex, ILogger<T> logger, Guid correlationId)
     {
-        var status = new Status(StatusCode.Internal, "An error occurred");
+        var status = new Status(StatusCode.Internal, ex.Message);
         return ex.Handle(logger, status, CreateTrailers(correlationId));
     }
 

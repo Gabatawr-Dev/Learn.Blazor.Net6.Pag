@@ -1,8 +1,0 @@
-syntax = "proto3";
-option csharp_namespace = "Learn.Blazor.Net6.Pag.Grpc.Product";
-
-import "Product/ProductUnit.proto";
-
-message ProductGetAllRes {
-    repeated ProductUnit units = 1;
-}

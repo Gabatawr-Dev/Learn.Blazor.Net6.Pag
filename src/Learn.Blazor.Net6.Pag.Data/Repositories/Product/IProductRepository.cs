@@ -4,5 +4,4 @@ namespace Learn.Blazor.Net6.Pag.Data.Repositories.Product;
 
 public interface IProductRepository : IRepository<ProductDTO, Guid>
 {
-    
 }
