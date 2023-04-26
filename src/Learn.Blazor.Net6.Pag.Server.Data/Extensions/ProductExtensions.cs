@@ -1,7 +1,7 @@
-﻿using Learn.Blazor.Net6.Pag.Data.Entities;
-using Learn.Blazor.Net6.Pag.Models.Product;
+﻿using Learn.Blazor.Net6.Pag.Models.Product;
+using Learn.Blazor.Net6.Pag.Server.Data.Entities;
 
-namespace Learn.Blazor.Net6.Pag.Data.Extensions;
+namespace Learn.Blazor.Net6.Pag.Server.Data.Extensions;
 
 public static class ProductExtensions
 {

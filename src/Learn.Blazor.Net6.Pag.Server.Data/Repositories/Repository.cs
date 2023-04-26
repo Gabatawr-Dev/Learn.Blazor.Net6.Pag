@@ -1,9 +1,9 @@
 ﻿using System.Linq.Expressions;
-using Learn.Blazor.Net6.Pag.Data.Contexts;
-using Learn.Blazor.Net6.Pag.Data.Entities;
+using Learn.Blazor.Net6.Pag.Server.Data.Contexts;
+using Learn.Blazor.Net6.Pag.Server.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
-namespace Learn.Blazor.Net6.Pag.Data.Repositories;
+namespace Learn.Blazor.Net6.Pag.Server.Data.Repositories;
 
 public abstract class Repository<T, TKey> : IRepository<T, TKey> where T : class, IEntity<TKey>
 {

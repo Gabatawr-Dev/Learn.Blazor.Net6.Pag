@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 
-namespace Learn.Blazor.Net6.Pag.Data.Extensions;
+namespace Learn.Blazor.Net6.Pag.Server.Data.Extensions;
 
 public static class SecretsExtensions
 {

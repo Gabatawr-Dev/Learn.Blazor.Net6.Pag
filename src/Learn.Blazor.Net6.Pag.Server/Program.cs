@@ -1,4 +1,4 @@
-using Learn.Blazor.Net6.Pag.Data.Repositories.Product;
+using Learn.Blazor.Net6.Pag.Server.Data.Repositories.Product;
 using Learn.Blazor.Net6.Pag.Server.GrpcServices.Product;
 using Learn.Blazor.Net6.Pag.Server.Services.Product;
 

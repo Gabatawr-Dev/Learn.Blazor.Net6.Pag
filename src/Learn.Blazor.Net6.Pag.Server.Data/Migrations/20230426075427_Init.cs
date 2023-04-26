@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace Learn.Blazor.Net6.Pag.Data.Migrations
+namespace Learn.Blazor.Net6.Pag.Server.Data.Migrations
 {
     public partial class Init : Migration
     {

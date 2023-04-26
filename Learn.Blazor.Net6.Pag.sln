@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn.Blazor.Net6.Pag.Serve
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn.Blazor.Net6.Pag.Client.Web", "src\Learn.Blazor.Net6.Pag.Client.Web\Learn.Blazor.Net6.Pag.Client.Web.csproj", "{77B8E2FB-86E3-42C9-8EE1-AA1B807302E2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn.Blazor.Net6.Pag.Data", "src\Learn.Blazor.Net6.Pag.Data\Learn.Blazor.Net6.Pag.Data.csproj", "{349A8507-79A6-40AA-83DE-9B3959901AA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn.Blazor.Net6.Pag.Server.Data", "src\Learn.Blazor.Net6.Pag.Server.Data\Learn.Blazor.Net6.Pag.Server.Data.csproj", "{349A8507-79A6-40AA-83DE-9B3959901AA5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Learn.Blazor.Net6.Pag.Models", "src\Learn.Blazor.Net6.Pag.Models\Learn.Blazor.Net6.Pag.Models.csproj", "{1940F7A7-5C75-4B12-B4E6-A6B0C1BD0F20}"
 EndProject

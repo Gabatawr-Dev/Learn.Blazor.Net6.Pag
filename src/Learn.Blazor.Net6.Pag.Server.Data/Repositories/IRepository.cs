@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
-using Learn.Blazor.Net6.Pag.Data.Entities;
+using Learn.Blazor.Net6.Pag.Server.Data.Entities;
 
-namespace Learn.Blazor.Net6.Pag.Data.Repositories;
+namespace Learn.Blazor.Net6.Pag.Server.Data.Repositories;
 
 public interface IRepository<T, TKey> where T : class, IEntity<TKey>
 {

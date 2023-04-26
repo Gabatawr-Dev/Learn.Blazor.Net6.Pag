@@ -1,8 +1,8 @@
 ﻿using System.Runtime.CompilerServices;
-using Learn.Blazor.Net6.Pag.Data.Extensions;
-using Learn.Blazor.Net6.Pag.Data.Repositories.Product;
 using Learn.Blazor.Net6.Pag.Grpc.Product;
 using Learn.Blazor.Net6.Pag.Models.Product;
+using Learn.Blazor.Net6.Pag.Server.Data.Extensions;
+using Learn.Blazor.Net6.Pag.Server.Data.Repositories.Product;
 
 namespace Learn.Blazor.Net6.Pag.Server.Services.Product;
 

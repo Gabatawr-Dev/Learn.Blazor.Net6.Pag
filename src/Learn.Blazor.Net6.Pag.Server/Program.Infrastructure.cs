@@ -1,5 +1,5 @@
-using Learn.Blazor.Net6.Pag.Data.Contexts;
-using Learn.Blazor.Net6.Pag.Data.Extensions;
+using Learn.Blazor.Net6.Pag.Server.Data.Contexts;
+using Learn.Blazor.Net6.Pag.Server.Data.Extensions;
 using Learn.Blazor.Net6.Pag.Server.Infrastructures.Filters;
 using Learn.Blazor.Net6.Pag.Server.Infrastructures.Interceptors;
 using Serilog;

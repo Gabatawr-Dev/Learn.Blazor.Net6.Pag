@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace Learn.Blazor.Net6.Pag.Data.Entities;
+namespace Learn.Blazor.Net6.Pag.Server.Data.Entities;
 
 public class ProductEntity : IEntity<Guid>
 {
