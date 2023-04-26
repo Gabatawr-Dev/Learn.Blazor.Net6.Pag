@@ -1,4 +1,4 @@
-﻿namespace Learn.Blazor.Net6.Pag.Models.Configuration;
+﻿namespace Learn.Blazor.Net6.Pag.Server.Models.Configuration;
 
 public class QuantityPerRequest
 {

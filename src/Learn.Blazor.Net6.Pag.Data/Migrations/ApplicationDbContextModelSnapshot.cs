@@ -22,7 +22,7 @@ namespace Learn.Blazor.Net6.Pag.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("Learn.Blazor.Net6.Pag.Models.Product.ProductDTO", b =>
+            modelBuilder.Entity("Learn.Blazor.Net6.Pag.Data.Entities.ProductEntity", b =>
                 {
                     b.Property<Guid>("Id")
                         .ValueGeneratedOnAdd()
@@ -49,7 +49,7 @@ namespace Learn.Blazor.Net6.Pag.Data.Migrations
                     b.HasData(
                         new
                         {
-                            Id = new Guid("920b4e00-383c-4e6a-8071-5802f45b8208"),
+                            Id = new Guid("00000000-1000-0000-0000-000000000000"),
                             Description = "The Great Gatsby is a 1925 novel written by American author F. Scott Fitzgerald that follows a cast of characters living in the fictional town of West Egg on prosperous Long Island in the summer of 1922.",
                             ImageUrl = "https://fastly.picsum.photos/id/765/200/300.jpg?hmac=yRNlm1EXdqLX1q3pNM20VW3eARvw3XIoph6gf4qydTk",
                             Price = 9.99m,
@@ -57,35 +57,83 @@ namespace Learn.Blazor.Net6.Pag.Data.Migrations
                         },
                         new
                         {
-                            Id = new Guid("c4f27d3e-1913-4b44-b9c2-a200bae8e1bd"),
+                            Id = new Guid("00000000-2000-0000-0000-000000000000"),
                             Description = "The Catcher in the Rye is a 1951 novel by J. D. Salinger. A controversial novel originally published for adults, it has since become popular with adolescent readers for its themes of teenage angst and alienation.",
                             ImageUrl = "https://fastly.picsum.photos/id/906/200/300.jpg?hmac=7sarKOMVDlgOBTc6eUDUf0M4S-M-4jF0X0uix_sMALU",
-                            Price = 7.99m,
+                            Price = 8.99m,
                             Title = "The Catcher in the Rye"
                         },
                         new
                         {
-                            Id = new Guid("54ee66a7-78cb-430f-94a9-7fcb325df3ee"),
+                            Id = new Guid("00000000-3000-0000-0000-000000000000"),
                             Description = "The Grapes of Wrath is an American realist novel written by John Steinbeck and published in 1939. The book won the National Book Award and Pulitzer Prize for Fiction, and it was cited prominently when Steinbeck was awarded the Nobel Prize in 1962.",
                             ImageUrl = "https://fastly.picsum.photos/id/688/200/300.jpg?hmac=6_iDeSdl4f6R2Lre1xFrJ9VaO8OQHMJD_PL5lEypBGI",
-                            Price = 5.99m,
+                            Price = 7.99m,
                             Title = "The Grapes of Wrath"
                         },
                         new
                         {
-                            Id = new Guid("76125730-eefa-4086-882f-40b148c64496"),
+                            Id = new Guid("00000000-4000-0000-0000-000000000000"),
                             Description = "The Lord of the Rings is an epic high fantasy novel written by English author and scholar J. R. R. Tolkien. The story began as a sequel to Tolkien's 1937 fantasy novel The Hobbit, but eventually developed into a much larger work.",
                             ImageUrl = "https://fastly.picsum.photos/id/448/200/300.jpg?hmac=9a1pqR60H2xWN80jPWfmdVkRII-wEQZceiSHpJSZnE4",
-                            Price = 3.99m,
+                            Price = 6.99m,
                             Title = "The Lord of the Rings"
                         },
                         new
                         {
-                            Id = new Guid("5cff8fb2-28aa-4843-8bac-9e692fb4b771"),
+                            Id = new Guid("00000000-5000-0000-0000-000000000000"),
                             Description = "The Adventures of Huckleberry Finn is a novel by Mark Twain, first published in the United Kingdom in December 1884 and in the United States in February 1885. Commonly named among the Great American Novels, the work is among the first in major American literature to be written throughout in vernacular English, characterized by local color regionalism.",
                             ImageUrl = "https://fastly.picsum.photos/id/602/200/300.jpg?hmac=TkzlF12MtJomcmqzsOc-CR43gSl3xnotDQRPBvM7Avw",
-                            Price = 1.99m,
+                            Price = 5.99m,
                             Title = "The Adventures of Huckleberry Finn"
+                        },
+                        new
+                        {
+                            Id = new Guid("00000000-6000-0000-0000-000000000000"),
+                            Description = "The Adventures of Tom Sawyer is a novel by Mark Twain, first published in the United Kingdom in December 1884 and in the United States in February 1885. Commonly named among the Great American Novels, the work is among the first in major American literature to be written throughout in vernacular English, characterized by local color regionalism.",
+                            ImageUrl = "https://fastly.picsum.photos/id/555/200/300.jpg?hmac=HbW_j1WvVDr5eTwXP2bsohZEiyBe-G6fsPkgAxJe9ps",
+                            Price = 4.99m,
+                            Title = "The Adventures of Tom Sawyer"
+                        },
+                        new
+                        {
+                            Id = new Guid("00000000-7000-0000-0000-000000000000"),
+                            Description = "The Adventures of Sherlock Holmes is a collection of twelve stories by Arthur Conan Doyle, featuring his fictional detective Sherlock Holmes. It was first published on 14 October 1892; the individual stories had been serialised in The Strand Magazine between July 1891 and June 1892.",
+                            ImageUrl = "https://fastly.picsum.photos/id/831/200/300.jpg?hmac=IC6dJVWWVnJ-extXtn0D9QDwKwbQ-tA_M6UD2T9zUbQ",
+                            Price = 3.99m,
+                            Title = "The Adventures of Sherlock Holmes"
+                        },
+                        new
+                        {
+                            Id = new Guid("00000000-8000-0000-0000-000000000000"),
+                            Description = "A Pulitzer Prize-winning novel by Harper Lee set in the Deep South and deals with issues of racism and injustice.",
+                            ImageUrl = "https://fastly.picsum.photos/id/530/200/300.jpg?hmac=pl2pzOmYOiMa6E_Ddf_SFQVGjDvmZ1xgj-JznVHuUsg",
+                            Price = 12.99m,
+                            Title = "To Kill a Mockingbird"
+                        },
+                        new
+                        {
+                            Id = new Guid("00000000-9000-0000-0000-000000000000"),
+                            Description = "A dystopian novel by George Orwell that depicts a totalitarian society and explores themes of government surveillance, censorship, and propaganda.",
+                            ImageUrl = "https://fastly.picsum.photos/id/581/200/300.jpg?hmac=Xsg_aDXsNDPBGUvQPMKuMn2f4XS6zkrgh0vnl2lzljk",
+                            Price = 8.99m,
+                            Title = "1984"
+                        },
+                        new
+                        {
+                            Id = new Guid("00000000-1000-1000-0000-000000000000"),
+                            Description = "A classic novel by Jane Austen that explores themes of love, marriage, and societal expectations.",
+                            ImageUrl = "https://fastly.picsum.photos/id/381/200/300.jpg?hmac=DHcGsLBoQPJC-_rudxS4AdZuSE9UoOFP2U2v2veUAok",
+                            Price = 7.99m,
+                            Title = "Pride and Prejudice"
+                        },
+                        new
+                        {
+                            Id = new Guid("00000000-1000-2000-0000-000000000000"),
+                            Description = "A novel by Gabriel Garcia Marquez that tells the story of the Buendia family over seven generations and explores themes of love, magic, and the cyclical nature of time.",
+                            ImageUrl = "https://fastly.picsum.photos/id/374/200/300.jpg?hmac=O7_6jZztETgk8S2eFcdlCNlqe50qS5u-OW5hs-EoNMo",
+                            Price = 11.99m,
+                            Title = "One Hundred Years of Solitude"
                         });
                 });
 #pragma warning restore 612, 618

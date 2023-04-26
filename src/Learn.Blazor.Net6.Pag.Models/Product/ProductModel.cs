@@ -7,18 +7,4 @@ public class ProductModel
     public string Description { get; set; } = string.Empty;
     public string? ImageUrl { get; set; }
     public decimal Price { get; set; }
-
-    public ProductModel() { }
-
-    // Moq
-    public ProductModel(string title, string description, decimal price, string? imageUrl = null)
-    {
-        Id = Guid.NewGuid();
-
-        Title = title;
-        Description = description;
-        Price = price;
-
-        ImageUrl = imageUrl;
-    }
 }

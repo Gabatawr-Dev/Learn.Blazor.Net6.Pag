@@ -16,7 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Learn.Blazor.Net6.Pag.Grpc\Learn.Blazor.Net6.Pag.Grpc.csproj" />
+    <ProjectReference Include="..\Learn.Blazor.Net6.Pag.Extensions\Learn.Blazor.Net6.Pag.Extensions.csproj" />
   </ItemGroup>
 
   <ItemGroup>

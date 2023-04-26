@@ -1,7 +1,7 @@
-﻿using Learn.Blazor.Net6.Pag.Models.Product;
+﻿using Learn.Blazor.Net6.Pag.Data.Entities;
 
 namespace Learn.Blazor.Net6.Pag.Data.Repositories.Product;
 
-public interface IProductRepository : IRepository<ProductDTO, Guid>
+public interface IProductRepository : IRepository<ProductEntity, Guid>
 {
 }

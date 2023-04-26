@@ -1,4 +1,5 @@
 ﻿using Grpc.Core;
+using Learn.Blazor.Net6.Pag.Extensions;
 using Learn.Blazor.Net6.Pag.Grpc.Product;
 using Learn.Blazor.Net6.Pag.Server.Services.Product;
 

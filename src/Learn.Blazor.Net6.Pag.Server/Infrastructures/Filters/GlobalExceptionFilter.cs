@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc;
-using Learn.Blazor.Net6.Pag.Models;
+using Learn.Blazor.Net6.Pag.Server.Models;
 
 namespace Learn.Blazor.Net6.Pag.Server.Infrastructures.Filters;
 

@@ -1,4 +1,4 @@
-﻿namespace Learn.Blazor.Net6.Pag.Models;
+﻿namespace Learn.Blazor.Net6.Pag.Server.Models;
 
 [Serializable]
 public class GlobalExceptionModel

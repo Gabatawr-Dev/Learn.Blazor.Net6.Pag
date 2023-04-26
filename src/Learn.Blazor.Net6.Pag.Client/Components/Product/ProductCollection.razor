@@ -1,9 +1,4 @@
-﻿<div class="btn @LoadButtonContext.Class" @onclick="@LoadButtonContext.Command" style="width:180px">
-    <i class="@LoadButtonContext.IconClass"></i>
-    @LoadButtonContext.Text
-</div>
-
-<ul class="list-unstyled mt-2">
+﻿<ul class="list-unstyled mt-2">
     @foreach (var product in Collection)
     {
         <li class="card mb-3" style="max-width: 540px;">
@@ -22,3 +17,7 @@
         </li>
     }
 </ul>
+<div class="btn mb-3 @LoadButtonContext.Class" @onclick="@LoadButtonContext.Command" style="width:180px">
+    <i class="@LoadButtonContext.IconClass"></i>
+    @LoadButtonContext.Text
+</div>

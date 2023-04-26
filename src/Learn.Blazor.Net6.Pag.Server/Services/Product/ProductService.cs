@@ -1,4 +1,5 @@
 ﻿using System.Runtime.CompilerServices;
+using Learn.Blazor.Net6.Pag.Data.Extensions;
 using Learn.Blazor.Net6.Pag.Data.Repositories.Product;
 using Learn.Blazor.Net6.Pag.Grpc.Product;
 using Learn.Blazor.Net6.Pag.Models.Product;
@@ -19,7 +20,7 @@ public class ProductService : IProductService
             token, isTracking: false);
         
         var models = products
-            .Select(dto => dto.MapToModel())
+            .Select(entity => entity.MapToModel())
             .ToList();
         
         return models;
@@ -27,9 +28,9 @@ public class ProductService : IProductService
 
     public async IAsyncEnumerable<ProductModel> GetAsyncEnumerable(ProductGetReq request, [EnumeratorCancellation] CancellationToken token)
     {
-        await foreach (var dto in _repository.GetAsyncEnumerable(request.Quantity, request.Offset, 
+        await foreach (var entity in _repository.GetAsyncEnumerable(request.Quantity, request.Offset, 
                            isTracking: false).WithCancellation(token))
-            yield return dto.MapToModel();
+            yield return entity.MapToModel();
     }
 
     public async Task<int> GetTotalQuantityAsync(CancellationToken token) =>

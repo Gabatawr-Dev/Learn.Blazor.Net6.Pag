@@ -23,7 +23,6 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Learn.Blazor.Net6.Pag.Data\Learn.Blazor.Net6.Pag.Data.csproj" />
-    <ProjectReference Include="..\Learn.Blazor.Net6.Pag.Grpc\Learn.Blazor.Net6.Pag.Grpc.csproj" />
     <ProjectReference Include="..\Learn.Blazor.Net6.Pag.Client\Learn.Blazor.Net6.Pag.Client.csproj" />
   </ItemGroup>
 

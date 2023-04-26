@@ -1,6 +1,6 @@
 ﻿using System.Linq.Expressions;
 using Learn.Blazor.Net6.Pag.Data.Contexts;
-using Learn.Blazor.Net6.Pag.Models;
+using Learn.Blazor.Net6.Pag.Data.Entities;
 using Microsoft.EntityFrameworkCore;
 
 namespace Learn.Blazor.Net6.Pag.Data.Repositories;
