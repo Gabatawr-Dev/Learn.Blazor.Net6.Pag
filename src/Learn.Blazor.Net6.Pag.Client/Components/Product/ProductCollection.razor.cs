@@ -1,6 +1,4 @@
-﻿using Grpc.Core;
-using Learn.Blazor.Net6.Pag.Client.Services.Product;
-using Learn.Blazor.Net6.Pag.Grpc.Product;
+﻿using Learn.Blazor.Net6.Pag.Client.Services.Product;
 using Learn.Blazor.Net6.Pag.Models.Product;
 using Microsoft.AspNetCore.Components;
 
