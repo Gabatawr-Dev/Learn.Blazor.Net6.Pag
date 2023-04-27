@@ -3,7 +3,7 @@ using Learn.Blazor.Net7.Pag.Extensions;
 using Learn.Blazor.Net7.Pag.Grpc.Product;
 using Learn.Blazor.Net7.Pag.Models.Product;
 
-namespace Learn.Blazor.Net7.Pag.Client.Services.Product;
+namespace Learn.Blazor.Net7.Pag.Client.Product.Services.Product;
 
 public class ProductService : IProductService
 {
@@ -17,21 +17,23 @@ public class ProductService : IProductService
     {
         var request = new ProductGetReq { Quantity = quantity };
         if (offset > 0) request.Offset = offset;
-        
+
         var response = await _client.GetReqAsync(request, cancellationToken: token);
-        
+
         if (response.Units.Any() is false) yield break;
         foreach (var unit in response.Units) yield return unit.MapToModel();
-        if (response.QuantityRes == null || quantity <= response.QuantityRes.MaxPerRequest) 
+        if (response.QuantityRes == null || quantity <= response.QuantityRes.MaxPerRequest)
             yield break;
 
         var limit = response.QuantityRes.MaxPerRequest;
-        for (var i = offset + response.Units.Count; i < quantity; i += response.Units.Count)
+        for (var i = response.Units.Count; i < quantity; i += response.Units.Count)
         {
+            var left = quantity - i;
+            var q = left < limit ? left : limit;
             response = await _client.GetReqAsync(new ProductGetReq
             {
-                Quantity = limit,
-                Offset = i
+                Quantity = q,
+                Offset = i + offset
             }, cancellationToken: token);
 
             if (response.Units.Any() is false) yield break;
@@ -45,7 +47,7 @@ public class ProductService : IProductService
     {
         var request = new ProductGetReq { Quantity = quantity };
         if (offset > 0) request.Offset = offset;
-        
+
         var stream = _client.GetStreamReq(request, cancellationToken: token)
             .ResponseStream;
         while (await stream.MoveNext(token))
@@ -59,5 +61,12 @@ public class ProductService : IProductService
             request.IncludeTotal = true;
         return _client.GetQuantityReqAsync(request, cancellationToken: token)
             .ResponseAsync;
+    }
+
+    public async Task<ProductModel?> GetByIdAsync(Guid id, CancellationToken token = default)
+    {
+        var request = new ProductGetByIdReq { Id = id.ToString() };
+        var response = await _client.GetByIdReqAsync(request, cancellationToken: token);
+        return response.Unit?.MapToModel();
     }
 }

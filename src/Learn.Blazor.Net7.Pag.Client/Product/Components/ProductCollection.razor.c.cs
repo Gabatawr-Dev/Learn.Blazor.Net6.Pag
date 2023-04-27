@@ -1,6 +1,7 @@
 ﻿using Grpc.Core;
+using Learn.Blazor.Net7.Pag.Models.Product;
 
-namespace Learn.Blazor.Net7.Pag.Client.Components.Product;
+namespace Learn.Blazor.Net7.Pag.Client.Product.Components;
 
 public partial class ProductCollection
 {
@@ -26,20 +27,20 @@ public partial class ProductCollection
     private async Task PageLoadingCommand() => await Loading(async () =>
     {
         var token = GetToken();
-        await foreach (var model in _service
-                           .GetAsync(QUANTITY_PER_PAGE, _currentPage * QUANTITY_PER_PAGE, token))
-        {
-            Collection.Add(model); // TODO;
-        }
+        var pages = _service
+            .GetAsync(QUANTITY_PER_PAGE, _previousPage * QUANTITY_PER_PAGE, token);
 
-        _currentPage++;
+        await foreach (var model in pages.WithCancellation(token))
+            Collection.Add(model); // TODO;
+
+        Page++;
     });
 
     private async Task NextPageLoadingCommand() => await Loading(async () =>
     {
         var stream = _service
             .GetStreamAsync(QUANTITY_PER_PAGE - _lastLoadedQuantity,
-                _currentPage * QUANTITY_PER_PAGE + _lastLoadedQuantity);
+                _previousPage * QUANTITY_PER_PAGE + _lastLoadedQuantity);
 
         var token = GetToken();
         await foreach (var model in stream.WithCancellation(token))
@@ -47,13 +48,11 @@ public partial class ProductCollection
             Collection.Add(model);
             StateHasChanged();
             _lastLoadedQuantity++;
-
-            await Task.Delay(1000, token); // TODO;
         }
 
         if (_lastLoadedQuantity == QUANTITY_PER_PAGE)
         {
-            _currentPage++;
+            Page++;
             _lastLoadedQuantity = 0;
         }
     });
@@ -62,5 +61,11 @@ public partial class ProductCollection
     {
         _cancelButtonDelegate?.Invoke();
         return Task.CompletedTask;
+    }
+
+    private void OpenDetails(ProductModel model)
+    {
+        _navigator.SaveState(model);
+        _navigator.NavigateTo($"/product/{model.Id}");
     }
 }

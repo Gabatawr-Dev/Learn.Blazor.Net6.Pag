@@ -1,5 +1,4 @@
 ﻿using System.Runtime.CompilerServices;
-using Learn.Blazor.Net7.Pag.Grpc.Product;
 using Learn.Blazor.Net7.Pag.Models.Product;
 using Learn.Blazor.Net7.Pag.Server.Data.Extensions;
 using Learn.Blazor.Net7.Pag.Server.Data.Repositories.Product;
@@ -14,9 +13,9 @@ public class ProductService : IProductService
     public ProductService(IProductRepository repository) =>
         _repository = repository;
 
-    public async Task<IEnumerable<ProductModel>> GetAsync(ProductGetReq request, CancellationToken token)
+    public async Task<IEnumerable<ProductModel>> GetAsync(int quantity, int offset, CancellationToken token)
     {
-        var products = await _repository.GetAsync(request.Quantity, request.Offset, 
+        var products = await _repository.GetAsync(quantity, offset, 
             token, isTracking: false);
         
         var models = products
@@ -26,13 +25,19 @@ public class ProductService : IProductService
         return models;
     }
 
-    public async IAsyncEnumerable<ProductModel> GetAsyncEnumerable(ProductGetReq request, [EnumeratorCancellation] CancellationToken token)
+    public async IAsyncEnumerable<ProductModel> GetAsyncEnumerable(int quantity, int offset, [EnumeratorCancellation] CancellationToken token)
     {
-        await foreach (var entity in _repository.GetAsyncEnumerable(request.Quantity, request.Offset, 
+        await foreach (var entity in _repository.GetAsyncEnumerable(quantity, offset,
                            isTracking: false).WithCancellation(token))
             yield return entity.MapToModel();
     }
 
     public async Task<int> GetTotalQuantityAsync(CancellationToken token) =>
         await _repository.GetCountAsync(token);
+
+    public async Task<ProductModel?> GetByIdAsync(Guid id, CancellationToken token)
+    {
+        var product = await _repository.FindAsync(id, token);
+        return product?.MapToModel();
+    }
 }

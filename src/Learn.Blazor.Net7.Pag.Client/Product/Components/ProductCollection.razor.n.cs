@@ -1,4 +1,4 @@
-﻿namespace Learn.Blazor.Net7.Pag.Client.Components.Product;
+﻿namespace Learn.Blazor.Net7.Pag.Client.Product.Components;
 
 public partial class ProductCollection
 {

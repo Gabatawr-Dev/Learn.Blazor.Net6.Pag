@@ -1,5 +1,4 @@
-﻿using Learn.Blazor.Net7.Pag.Grpc.Product;
-using Learn.Blazor.Net7.Pag.Models.Product;
+﻿using Learn.Blazor.Net7.Pag.Models.Product;
 
 namespace Learn.Blazor.Net7.Pag.Server.Services.Product;
 
@@ -7,7 +6,8 @@ public interface IProductService
 {
     int MaxQuantityPerRequest { get; }
 
-    Task<IEnumerable<ProductModel>> GetAsync(ProductGetReq request, CancellationToken token);
-    IAsyncEnumerable<ProductModel> GetAsyncEnumerable(ProductGetReq request, CancellationToken token);
+    Task<IEnumerable<ProductModel>> GetAsync(int quantity, int offset, CancellationToken token);
+    IAsyncEnumerable<ProductModel> GetAsyncEnumerable(int quantity, int offset, CancellationToken token);
     Task<int> GetTotalQuantityAsync(CancellationToken token);
+    Task<ProductModel?> GetByIdAsync(Guid id, CancellationToken token);
 }

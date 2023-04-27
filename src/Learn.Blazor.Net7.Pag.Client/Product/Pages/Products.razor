@@ -1,0 +1,17 @@
+﻿@page "/products"
+@page "/products/page/{page:int}"
+
+<PageTitle>Products</PageTitle>
+
+<ProductCollection Page="Page"/>
+
+@code
+{
+    [Parameter] public int Page { get; set; }
+
+    public override async Task SetParametersAsync(ParameterView parameters)
+    {
+        await base.SetParametersAsync(parameters);
+        if (Page == 0) Page = 1;
+    }
+}

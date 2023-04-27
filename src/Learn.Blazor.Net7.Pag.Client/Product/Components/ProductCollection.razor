@@ -8,7 +8,11 @@
                 </div>
                 <div class="col-md-8">
                     <div class="card-body">
-                        <h5 class="card-title">@product.Title</h5>
+                        <a class="card-link" @onclick="() => OpenDetails(product)">
+                            <h5 class="card-title">
+                                @product.Title
+                            </h5>
+                        </a>
                         <p class="card-text">@product.Description</p>
                         <h5 class="card-subtitle">$@product.Price</h5>
                     </div>

@@ -1,22 +1,26 @@
-﻿using Learn.Blazor.Net7.Pag.Client.Services.Product;
+﻿using Learn.Blazor.Net7.Pag.Client.Common.Navigation;
+using Learn.Blazor.Net7.Pag.Client.Product.Services.Product;
 using Learn.Blazor.Net7.Pag.Models.Product;
 using Microsoft.AspNetCore.Components;
 
-namespace Learn.Blazor.Net7.Pag.Client.Components.Product;
+namespace Learn.Blazor.Net7.Pag.Client.Product.Components;
 
 public sealed partial class ProductCollection
 {
+    private const int QUANTITY_PER_PAGE = 5;
+    
+    [Inject] private INavigator _navigator { get; set; } = null!;
     [Inject] private IProductService _service { get; set; } = null!;
 
-    private const int QUANTITY_PER_PAGE = 2;
-    private int _currentPage;
+    [Parameter] public int Page { get; set; }
+    private int _previousPage => Page - 1;
+
     private int _lastLoadedQuantity;
 
     private ButtonViewModel _streamButtonContext { get; set; } = null!;
     private ButtonViewModel _cancelButtonContext { get; set; } = null!;
     
     private Action? _cancelButtonDelegate;
-    //private ProductGetQuantityRes? _quantityInfo;
 
     private ButtonViewModel LoadButtonContext { get; set; } = null!;
     private List<ProductModel> Collection { get; set; } = new();
@@ -24,7 +28,6 @@ public sealed partial class ProductCollection
     protected override async Task OnInitializedAsync()
     {
         InitButtons();
-        //_quantityInfo = await _service.GetQuantityAsync(true);
         await PageLoadingCommand();
     }
 
