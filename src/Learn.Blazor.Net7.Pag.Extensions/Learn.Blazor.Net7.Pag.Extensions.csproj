@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Learn.Blazor.Net7.Pag.Grpc\Learn.Blazor.Net7.Pag.Grpc.csproj" />
+    <ProjectReference Include="..\Learn.Blazor.Net7.Pag.Models\Learn.Blazor.Net7.Pag.Models.csproj" />
+  </ItemGroup>
+
+</Project>
