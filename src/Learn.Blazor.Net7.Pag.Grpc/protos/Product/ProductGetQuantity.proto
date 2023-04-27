@@ -1,4 +1,5 @@
 syntax = "proto3";
+package api.product;
 option csharp_namespace = "Learn.Blazor.Net7.Pag.Grpc.Product";
 
 message ProductGetQuantityReq {

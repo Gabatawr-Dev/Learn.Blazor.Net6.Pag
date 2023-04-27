@@ -1,3 +1,4 @@
+using System.Reflection;
 using Learn.Blazor.Net7.Pag.Server.Data.Contexts;
 using Learn.Blazor.Net7.Pag.Server.Data.Extensions;
 using Learn.Blazor.Net7.Pag.Server.Infrastructures.Filters;
@@ -32,12 +33,14 @@ public static partial class Program
         
         builder.Services.AddRazorPages();
 
-        builder.Services.AddGrpc(options =>
-            options.Interceptors.Add<ExceptionInterceptor>());
+        builder.Services.AddGrpc(options => 
+                options.Interceptors.Add<ExceptionInterceptor>())
+            .AddJsonTranscoding();
 
         builder.Services.AddEndpointsApiExplorer();
-        //builder.Services.AddGrpcSwagger();
-        builder.Services.AddSwaggerGen();
+        builder.Services.AddGrpcSwagger();
+        builder.Services.AddSwaggerGen(options =>
+            options.IncludeXmlComments($"{AppContext.BaseDirectory}{Assembly.GetExecutingAssembly().GetName().Name}.xml"));
 
         return builder;
     }

@@ -5,12 +5,16 @@
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <UserSecretsId>a34b49f3-f17f-4df3-ad42-2c52c8bb5b29</UserSecretsId>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <NoWarn>$(NoWarn);1591</NoWarn>
   </PropertyGroup>
 
 	<ItemGroup>
     <PackageReference Include="Grpc.AspNetCore" Version="2.52.0" />
     <PackageReference Include="Grpc.AspNetCore.Web" Version="2.52.0" />
     <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.Server" Version="7.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Grpc.JsonTranscoding" Version="7.0.5" />
+    <PackageReference Include="Microsoft.AspNetCore.Grpc.Swagger" Version="0.3.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>

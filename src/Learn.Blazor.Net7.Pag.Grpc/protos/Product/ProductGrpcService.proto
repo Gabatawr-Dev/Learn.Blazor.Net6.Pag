@@ -1,0 +1,31 @@
+syntax = "proto3";
+package api.product;
+option csharp_namespace = "Learn.Blazor.Net7.Pag.Grpc.Product";
+
+//import "google/protobuf/empty.proto";
+import "google/api/annotations.proto";
+
+import "protos/Product/ProductGet.proto";
+import "protos/Product/ProductUnit.proto";
+import "protos/Product/ProductGetQuantity.proto";
+
+service ProductGrpcService {
+  rpc GetReq(ProductGetReq) returns (ProductGetRes) {
+    option (google.api.http) = {
+      get: "/products/{quantity}/{offset}",
+    };
+  }
+    
+  rpc GetStreamReq(ProductGetReq) returns (stream ProductUnit) {
+    option (google.api.http) = {
+      get: "/products/stream/{quantity}/{offset}",
+    };
+  }
+  
+  rpc GetQuantityReq(ProductGetQuantityReq) returns (ProductGetQuantityRes) {
+    option (google.api.http) = {
+      get: "/products/quantity/{include_total}"
+    };
+  }
+ 
+}
