@@ -2,6 +2,7 @@
 using Grpc.Net.Client.Web;
 using Learn.Blazor.Net6.Pag.Client.Services.Product;
 using Learn.Blazor.Net6.Pag.Grpc.Product;
+using Microsoft.Extensions.Logging;
 
 namespace Learn.Blazor.Net6.Pag.Client.App;
 
@@ -20,6 +21,7 @@ public static class MauiProgram
         builder.Services.AddMauiBlazorWebView();
 #if DEBUG
         builder.Services.AddBlazorWebViewDeveloperTools();
+        builder.Logging.AddDebug();
 #endif
         
         builder.Services.AddScoped(_ => new ProductGrpcService

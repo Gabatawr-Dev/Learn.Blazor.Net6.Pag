@@ -30,13 +30,13 @@ public static partial class Program
 
         builder.Services.AddControllers(options => options.Filters.Add<GlobalExceptionFilter>());
         
-        builder.Services.AddControllersWithViews();
         builder.Services.AddRazorPages();
 
         builder.Services.AddGrpc(options =>
             options.Interceptors.Add<ExceptionInterceptor>());
 
         builder.Services.AddEndpointsApiExplorer();
+        //builder.Services.AddGrpcSwagger();
         builder.Services.AddSwaggerGen();
 
         return builder;
@@ -49,11 +49,8 @@ public static partial class Program
 
         if (app.Environment.IsDevelopment())
             app.UseWebAssemblyDebugging();
-        else
-        {
-            app.UseExceptionHandler("/Error");
-            app.UseHsts();
-        }
+        else app.UseHsts();
+        
         app.UseHttpsRedirection();
 
         app.UseBlazorFrameworkFiles();
