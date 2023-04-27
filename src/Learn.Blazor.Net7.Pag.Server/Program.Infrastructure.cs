@@ -29,18 +29,26 @@ public static partial class Program
         builder.Services.AddDbContext<ApplicationDbContext>(options =>
             options.UseSqlWithSecrets(builder.Configuration));
 
-        builder.Services.AddControllers(options => options.Filters.Add<GlobalExceptionFilter>());
+        builder.Services.AddControllers(options =>
+            options.Filters.Add<GlobalExceptionFilter>());
         
         builder.Services.AddRazorPages();
 
-        builder.Services.AddGrpc(options => 
+        builder.Services.AddGrpc(options =>
                 options.Interceptors.Add<ExceptionInterceptor>())
             .AddJsonTranscoding();
-
+        
         builder.Services.AddEndpointsApiExplorer();
+        
         builder.Services.AddGrpcSwagger();
         builder.Services.AddSwaggerGen(options =>
-            options.IncludeXmlComments($"{AppContext.BaseDirectory}{Assembly.GetExecutingAssembly().GetName().Name}.xml"));
+        {
+            var host = Assembly.GetExecutingAssembly().GetName().Name;
+            options.IncludeXmlComments($"{AppContext.BaseDirectory}{host}.xml");
+            
+            var grpc = host?.Replace("Server", "Grpc");
+            options.IncludeGrpcXmlComments($"{AppContext.BaseDirectory}{grpc}.xml", true);
+        });
 
         return builder;
     }

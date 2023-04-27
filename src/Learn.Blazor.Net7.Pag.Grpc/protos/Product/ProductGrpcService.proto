@@ -10,18 +10,21 @@ import "protos/Product/ProductUnit.proto";
 import "protos/Product/ProductGetQuantity.proto";
 
 service ProductGrpcService {
+  // ?offset=0
   rpc GetReq(ProductGetReq) returns (ProductGetRes) {
     option (google.api.http) = {
       get: "/products/get/{quantity}",
     };
   }
-    
+  
+  // ?quantity=0&offset=0
   rpc GetStreamReq(ProductGetReq) returns (stream ProductUnit) {
     option (google.api.http) = {
       get: "/products/stream",
     };
   }
-  
+
+  // ?include_total=false
   rpc GetQuantityReq(ProductGetQuantityReq) returns (ProductGetQuantityRes) {
     option (google.api.http) = {
       get: "/products/quantity"
