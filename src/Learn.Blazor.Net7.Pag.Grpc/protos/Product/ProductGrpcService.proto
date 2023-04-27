@@ -12,19 +12,19 @@ import "protos/Product/ProductGetQuantity.proto";
 service ProductGrpcService {
   rpc GetReq(ProductGetReq) returns (ProductGetRes) {
     option (google.api.http) = {
-      get: "/products/{quantity}/{offset}",
+      get: "/products/get/{quantity}",
     };
   }
     
   rpc GetStreamReq(ProductGetReq) returns (stream ProductUnit) {
     option (google.api.http) = {
-      get: "/products/stream/{quantity}/{offset}",
+      get: "/products/stream",
     };
   }
   
   rpc GetQuantityReq(ProductGetQuantityReq) returns (ProductGetQuantityRes) {
     option (google.api.http) = {
-      get: "/products/quantity/{include_total}"
+      get: "/products/quantity"
     };
   }
  
